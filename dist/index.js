@@ -38044,7 +38044,7 @@ function commitExists(octokit, branchName, commitSha) {
                 commit_sha: commitSha,
             });
             // Check the commit exists on the expected main branch (it will not in the case of a rebased main branch)
-            let maxPages = 20;
+            let maxPages = 25; // limit to first 2500 commits
             let commitFound = false;
             yield octokit.paginate("GET /repos/{owner}/{repo}/commits", {
                 owner,
